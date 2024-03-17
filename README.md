@@ -8,6 +8,8 @@
 
 Проект на FSD состоит из слоев (layers), каждый слой состоит из слайсов (slices) и каждый слайс состоит из сегментов (segments).
 
+![Feature Sliced Design](https://github.com/AvtsynovS/fsd_templates/blob/feat/first-settings-project/assets/fsd.jpg)
+
 ### :pushpin: Слои
 
 Слои стандартизированы во всех проектах и расположены вертикально. Модули на одном слое могут взаимодействовать лишь с модулями, находящимися на слоях строго ниже.
@@ -59,8 +61,8 @@
 
 ### TODO list
 
-- [x] Описание проекта в README.md
-- [:heavy_check_mark:] Слой app
+- ✅️ Описание проекта в README.md
+- [ ] Слой app
 - [ ] Слой pages
 - [ ] Слой widgets
 - [ ] Слой features
