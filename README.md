@@ -59,8 +59,8 @@
 
 ### TODO list
 
-- [x] Описание проекта в README.md
-- [:heavy_check_mark:] Слой app
+- :heavy_check_mark: Описание проекта в README.md
+- ✅️ Слой app
 - [ ] Слой pages
 - [ ] Слой widgets
 - [ ] Слой features
