@@ -1,0 +1,1 @@
+export { SecondEntity } from "./SecondEntity";
