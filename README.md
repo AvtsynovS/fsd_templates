@@ -83,6 +83,8 @@
 - [ ] Запросы в БД и хранение данных
 - [ ] Env
 - [ ] Axios
+- ✅️ Prettier settings
+- [ ] ESlint settings
 
 ### Feature Sliced Design документация
 
