@@ -1,3 +1,8 @@
+import { useOnlineStatus } from '../hooks';
+
+// TODO переделать пример фичи
 export const FirstFeature = () => {
-  return <div>FirstFeature</div>;
+  const isOnline = useOnlineStatus();
+
+  return <h3>{isOnline ? '✅ Online' : '❌ Disconnected'}</h3>;
 };
