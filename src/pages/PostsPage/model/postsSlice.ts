@@ -1,6 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { createPost, getPostById, getPosts } from './asyncThunks';
+
 import { Post } from '@entites';
+
+import { createPost, getPostById, getPosts } from './asyncThunks';
 
 type PostsState = {
   posts: Post[];

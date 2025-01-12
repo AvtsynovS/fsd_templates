@@ -1,6 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { addPost, getAllPosts, getPost } from '../api/posts';
+
 import { Post } from '@entites';
+
+import { addPost, getAllPosts, getPost } from '../api/posts';
 
 export const getPosts = createAsyncThunk('posts', async (_, thunkAPI) => {
   try {

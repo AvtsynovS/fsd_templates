@@ -1,17 +1,20 @@
+import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import {
   DefinePlugin,
   HotModuleReplacementPlugin,
   Configuration as WebpackConfiguration,
 } from 'webpack';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
 import { Configuration as WebpackDevServerConfiguration } from 'webpack-dev-server';
 
+import { aliases } from './aliases';
 import { paths } from './paths';
 import { rules } from './rules';
-import { aliases } from './aliases';
 import { argv, EnvType } from './types';
+
+// TODO разобраться с импортом при настройке webpack
+// eslint-disable-next-line import/no-extraneous-dependencies
 require('dotenv').config({ path: './.env.development' });
 
 interface Configuration extends WebpackConfiguration {
