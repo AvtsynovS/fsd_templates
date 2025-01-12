@@ -1,7 +1,7 @@
-import { onRequestError } from '../lib';
-
 import axios, { CreateAxiosDefaults } from 'axios';
+
 import { BASE_URL } from '../config';
+import { onRequestError } from '../lib';
 
 export const getAxiosInstance = (config?: CreateAxiosDefaults) => {
   const axiosInstance = axios.create({

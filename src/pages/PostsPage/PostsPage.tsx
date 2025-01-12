@@ -1,13 +1,15 @@
 import { useEffect } from 'react';
+
 import { FirstFeature } from '@featuries';
 import { useAppDispatch, useAppSelector } from '@shared';
+
 import { createPost, getPostById, getPosts } from './model/asyncThunks';
 
 export const PostsPage = () => {
   const dispatch = useAppDispatch();
 
   const posts = useAppSelector(({ posts }) => posts.posts);
-  const currentPost = useAppSelector(({ posts }) => posts.currentPost);
+  // const currentPost = useAppSelector(({ posts }) => posts.currentPost);
 
   const onCreatePost = () => {
     const post = {

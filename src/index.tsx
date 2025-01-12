@@ -1,11 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import { Application } from './App';
-import reportWebVitals from './reportWebVitals';
+
 import { Provider } from 'react-redux';
+import './index.css';
+
+import { Application } from './App';
 // TODO уточнить подходит-ли данный импорт для FSD
 import { store } from './app/store';
+import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,

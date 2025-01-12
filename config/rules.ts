@@ -1,6 +1,8 @@
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import { EnvType } from './types';
+
 import { paths } from '../config/paths';
+
+import { EnvType } from './types';
 
 const svgLoaders = {
   test: /\.svg$/i,
@@ -95,11 +97,11 @@ const fountAssetsLoader = {
 // Так тоже работает
 // asset/inline - встраиваются в код бандла как url
 // asset/source - файлы встраиваются без преобразований
-const fontLoader = {
-  test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
-  type: 'asset/inline',
-  resourceQuery: /url/,
-};
+// const fontLoader = {
+//   test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
+//   type: 'asset/inline',
+//   resourceQuery: /url/,
+// };
 
 export const rules = (env: EnvType) => {
   return [
