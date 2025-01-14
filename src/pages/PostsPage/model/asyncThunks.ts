@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-import { Post } from '@entites';
+import { PostType } from '@entities';
 
 import { addPost, getAllPosts, getPost } from '../api/posts';
 
@@ -30,7 +30,7 @@ export const getPostById = createAsyncThunk(
 
 export const createPost = createAsyncThunk(
   'createPost',
-  async (post: Omit<Post, 'id'>, thunkAPI) => {
+  async (post: Omit<PostType, 'id'>, thunkAPI) => {
     try {
       const newPost = await addPost(post);
       return newPost;

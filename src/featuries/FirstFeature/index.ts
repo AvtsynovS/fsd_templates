@@ -1,1 +1,0 @@
-export { FirstFeature } from "./FirstFeature";

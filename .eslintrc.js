@@ -49,5 +49,50 @@ module.exports = {
         'newlines-between': 'always-and-inside-groups',
       },
     ],
+    'import/no-restricted-paths': [
+      'error',
+      {
+        zones: [
+          {
+            target: ['./src/shared'],
+            from: [
+              './src/entities',
+              './src/features',
+              './src/widgets',
+              './src/pages',
+              './src/app',
+            ],
+            message: 'Импорт из других слоев запрещен в слой shared',
+          },
+          {
+            target: ['./src/entities'],
+            from: [
+              './src/features',
+              './src/widgets',
+              './src/pages',
+              './src/app',
+            ],
+            message:
+              'Импорт из слоев features, widgets, pages или app запрещен в слой entities',
+          },
+          {
+            target: ['./src/features'],
+            from: ['./src/widgets', './src/pages', './src/app'],
+            message:
+              'Импорт из слоев widgets, pages или app запрещен в слой features',
+          },
+          {
+            target: ['./src/widgets'],
+            from: ['./src/pages', './src/app'],
+            message: 'Импорт из слоев pages или app запрещен в слой widgets',
+          },
+          {
+            target: ['./src/pages'],
+            from: ['./src/app'],
+            message: 'Импорт из слоя app запрещен в слой pages',
+          },
+        ],
+      },
+    ],
   },
 };

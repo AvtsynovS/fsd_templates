@@ -20,8 +20,8 @@
       "@app": ["app"],
       "@pages": ["pages"],
       "@widgets": ["widgets"],
-      "@featuries": ["featuries"],
-      "@entites": ["entites"],
+      "@features": ["features"],
+      "@entities": ["entities"],
       "@shared": ["shared"]
     }
   },

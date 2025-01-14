@@ -1,8 +1,9 @@
-import { Post } from '@entites';
+import { PostType } from '@entities';
+
 import { BASE_URL, httpClient } from '@shared';
 
 export const getAllPosts = async () => {
-  const { data } = await httpClient.request<Post[]>({
+  const { data } = await httpClient.request<PostType[]>({
     method: 'GET',
     url: BASE_URL,
     params: {
@@ -14,15 +15,15 @@ export const getAllPosts = async () => {
 };
 
 export const getPost = async (id: number) => {
-  const { data } = await httpClient.request<Post>({
+  const { data } = await httpClient.request<PostType>({
     method: 'GET',
     url: `${BASE_URL}/${id}`,
   });
   return data;
 };
 
-export const addPost = async (post: Omit<Post, 'id'>) => {
-  const { data } = await httpClient.request<Post>({
+export const addPost = async (post: Omit<PostType, 'id'>) => {
+  const { data } = await httpClient.request<PostType>({
     method: 'POST',
     url: BASE_URL,
     data: post,

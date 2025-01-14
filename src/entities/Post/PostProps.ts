@@ -1,4 +1,4 @@
-export type Post = {
+export type PostType = {
   body: string;
   id: number;
   title: string;
@@ -6,5 +6,5 @@ export type Post = {
 };
 
 export interface PostProps {
-  post: Post;
+  post: PostType;
 }

@@ -4,7 +4,7 @@ export const aliases = {
   '@app': path.resolve(__dirname, '../src/app'),
   '@pages': path.resolve(__dirname, '../src/pages'),
   '@widgets': path.resolve(__dirname, '../src/widgets'),
-  '@featuries': path.resolve(__dirname, '../src/featuries/'),
-  '@entites': path.resolve(__dirname, '../src/entites'),
+  '@features': path.resolve(__dirname, '../src/features/'),
+  '@entities': path.resolve(__dirname, '../src/entities'),
   '@shared': path.resolve(__dirname, '../src/shared'),
 };
