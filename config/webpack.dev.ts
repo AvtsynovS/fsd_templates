@@ -47,7 +47,7 @@ const config = (env: EnvType, argv: argv): Configuration => {
     },
     plugins: [
       new HtmlWebpackPlugin({
-        title: 'webpack-config',
+        title: 'FSD Template',
         inject: 'body',
         template: `${paths.public}/index.html`,
         favicon: `${paths.public}/favicon.ico`,

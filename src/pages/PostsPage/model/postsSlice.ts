@@ -1,12 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { Post } from '@entites';
+import { PostType } from '@entities';
 
 import { createPost, getPostById, getPosts } from './asyncThunks';
 
 type PostsState = {
-  posts: Post[];
-  currentPost: Post | null;
+  posts: PostType[];
+  currentPost: PostType | null;
   loading: boolean;
 };
 

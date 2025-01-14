@@ -1,4 +1,4 @@
-import { useOnlineStatus } from '../hooks';
+import { useOnlineStatus } from '@shared';
 
 // TODO переделать пример фичи
 export const FirstFeature = () => {

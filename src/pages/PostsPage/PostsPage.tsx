@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
 
-import { FirstFeature } from '@featuries';
-import { useAppDispatch, useAppSelector } from '@shared';
+import { FirstFeature } from '@features';
+
+import { Button, useAppDispatch, useAppSelector } from '@shared';
 
 import { createPost, getPostById, getPosts } from './model/asyncThunks';
 
@@ -32,7 +33,7 @@ export const PostsPage = () => {
       <div>Порт: {process.env.REACT_APP_PORT}</div>
       <div>Версия: {process.env.npm_package_version}</div>
       <FirstFeature />
-      <button onClick={onCreatePost}>Создать пост</button>
+      <Button label="Создать пост" onClick={onCreatePost} />
       <div>
         <h3>Посты</h3>
         {posts.map(({ id, title, body }) => {
