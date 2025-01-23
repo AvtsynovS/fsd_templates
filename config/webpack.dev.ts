@@ -1,11 +1,7 @@
 import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import {
-  DefinePlugin,
-  HotModuleReplacementPlugin,
-  Configuration as WebpackConfiguration,
-} from 'webpack';
+import { DefinePlugin, Configuration as WebpackConfiguration } from 'webpack';
 import { Configuration as WebpackDevServerConfiguration } from 'webpack-dev-server';
 
 import { aliases } from './aliases';
@@ -13,8 +9,6 @@ import { paths } from './paths';
 import { rules } from './rules';
 import { argv, EnvType } from './types';
 
-// TODO разобраться с импортом при настройке webpack
-// eslint-disable-next-line import/no-extraneous-dependencies
 require('dotenv').config({ path: './.env.development' });
 
 interface Configuration extends WebpackConfiguration {
@@ -27,6 +21,7 @@ interface Configuration extends WebpackConfiguration {
 // TODO Выделить общую конфигурацию в отдельный файл
 
 const PORT = process.env.REACT_APP_PORT || 3000;
+const HOST = process.env.HOST || '0.0.0.0';
 
 const config = (env: EnvType, argv: argv): Configuration => {
   return {
@@ -57,8 +52,8 @@ const config = (env: EnvType, argv: argv): Configuration => {
       new MiniCssExtractPlugin({
         filename: 'css/[name].[contenthash].css',
         chunkFilename: '[id].css',
+        ignoreOrder: true,
       }),
-      new HotModuleReplacementPlugin(),
       new DefinePlugin({
         'process.env': JSON.stringify(process.env),
       }),
@@ -66,8 +61,11 @@ const config = (env: EnvType, argv: argv): Configuration => {
     // настраивает корректный стек-трейс для отслеживания ошибок в исходных файлах, вместо бандла
     devtool: 'inline-source-map',
     devServer: {
+      host: HOST,
       port: PORT,
       hot: true,
+      historyApiFallback: true,
+      compress: true,
       static: {
         directory: paths.build, // Каталог для статики
       },
