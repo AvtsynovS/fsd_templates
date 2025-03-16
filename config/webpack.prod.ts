@@ -2,6 +2,7 @@ import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
 import dotenv from 'dotenv';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import TerserPlugin from 'terser-webpack-plugin';
 import { DefinePlugin, Configuration as WebpackConfiguration } from 'webpack';
 import { Configuration as WebpackDevServerConfiguration } from 'webpack-dev-server';
 
@@ -10,29 +11,23 @@ import { paths } from './paths';
 import { rules } from './rules';
 import { argv, EnvType } from './types';
 
-dotenv.config({ path: './.env.development' });
+import type { JsMinifyOptions as SwcOptions } from '@swc/core';
+
+dotenv.config({ path: './.env.production' });
 
 interface Configuration extends WebpackConfiguration {
   devServer?: WebpackDevServerConfiguration;
 }
 
-// TODO Настроить Webpack config
-// TODO Разделить на dev и prod
-// TODO Настроить шрифты
-// TODO Выделить общую конфигурацию в отдельный файл
-
-const PORT = process.env.REACT_APP_PORT || 3000;
-const HOST = process.env.HOST || '0.0.0.0';
-
 const config = (env: EnvType, argv: argv): Configuration => {
   return {
-    mode: env?.production ? 'production' : 'development',
+    mode: 'production',
     entry: `${paths.src}/index.tsx`,
     output: {
       publicPath: '/',
-      // filename: "[name].[contenthash].js",
       path: paths.build,
-      // assetModuleFilename: "images/[name][ext]",
+      filename: '[name].[contenthash].bundle.js',
+      chunkFilename: '[name].[contenthash].bundle.js',
       clean: true,
     },
     module: {
@@ -60,26 +55,22 @@ const config = (env: EnvType, argv: argv): Configuration => {
         'process.env': JSON.stringify(process.env),
       }),
     ],
-    // настраивает корректный стек-трейс для отслеживания ошибок в исходных файлах, вместо бандла
-    devtool: 'inline-source-map',
-    devServer: {
-      host: HOST,
-      port: PORT,
-      hot: true,
-      historyApiFallback: true,
-      compress: true,
-      static: {
-        directory: paths.build, // Каталог для статики
-      },
-      open: true, // Автоматически открывать браузер
-    },
+    devtool: false,
     optimization: {
-      // minimize: false,
-      // runtimeChunk: false,
-      // sideEffects: true,
+      minimize: true,
       minimizer: [
         new CssMinimizerPlugin({
           parallel: true,
+        }),
+        new TerserPlugin<SwcOptions>({
+          minify: TerserPlugin.swcMinify,
+          parallel: true,
+          terserOptions: {
+            compress: true,
+            format: {
+              comments: false,
+            },
+          },
         }),
       ],
     },
