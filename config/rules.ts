@@ -1,8 +1,8 @@
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
-import { paths } from '../config/paths';
+import { paths } from '../config/paths.ts';
 
-import { EnvType } from './types';
+import { EnvType } from './types.ts';
 
 const svgLoaders = {
   test: /\.svg$/i,
