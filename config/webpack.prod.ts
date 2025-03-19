@@ -6,10 +6,10 @@ import TerserPlugin from 'terser-webpack-plugin';
 import { DefinePlugin, Configuration as WebpackConfiguration } from 'webpack';
 import { Configuration as WebpackDevServerConfiguration } from 'webpack-dev-server';
 
-import { aliases } from './aliases';
-import { paths } from './paths';
-import { rules } from './rules';
-import { argv, EnvType } from './types';
+import { aliases } from './aliases.ts';
+import { paths } from './paths.ts';
+import { rules } from './rules.ts';
+import { argv, EnvType } from './types.ts';
 
 import type { JsMinifyOptions as SwcOptions } from '@swc/core';
 

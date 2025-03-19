@@ -5,10 +5,10 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { DefinePlugin, Configuration as WebpackConfiguration } from 'webpack';
 import { Configuration as WebpackDevServerConfiguration } from 'webpack-dev-server';
 
-import { aliases } from './aliases';
-import { paths } from './paths';
-import { rules } from './rules';
-import { argv, EnvType } from './types';
+import { aliases } from './aliases.ts';
+import { paths } from './paths.ts';
+import { rules } from './rules.ts';
+import { argv, EnvType } from './types.ts';
 
 dotenv.config({ path: './.env.development' });
 
