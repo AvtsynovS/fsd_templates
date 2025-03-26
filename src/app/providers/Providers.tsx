@@ -1,4 +1,5 @@
 import { ErrorBoundary } from 'react-error-boundary';
+import { QueryClient, QueryClientProvider } from 'react-query';
 import { Provider } from 'react-redux';
 
 import { Fallback } from '@shared';
@@ -11,9 +12,17 @@ type ProviderProps = {
 
 // TODO Пробросить тему
 export const Providers = ({ children }: ProviderProps) => {
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: { refetchOnWindowFocus: false },
+    },
+  });
+
   return (
     <ErrorBoundary FallbackComponent={Fallback}>
-      <Provider store={store}>{children}</Provider>
+      <QueryClientProvider client={queryClient}>
+        <Provider store={store}>{children}</Provider>
+      </QueryClientProvider>
     </ErrorBoundary>
   );
 };

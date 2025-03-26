@@ -1,9 +1,4 @@
-export type PostType = {
-  body: string;
-  id: number;
-  title: string;
-  userId: number;
-};
+import { PostType } from '@shared';
 
 export interface PostProps {
   post: PostType;

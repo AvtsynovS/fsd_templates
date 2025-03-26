@@ -1,6 +1,4 @@
-import { PostType } from '@entities';
-
-import { BASE_URL, httpClient } from '@shared';
+import { BASE_URL, httpClient, PostType } from '@shared';
 
 export const getAllPosts = async () => {
   const { data } = await httpClient.request<PostType[]>({

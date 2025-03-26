@@ -2,7 +2,12 @@ import { useEffect } from 'react';
 
 import { FirstFeature } from '@features';
 
-import { Button, useAppDispatch, useAppSelector } from '@shared';
+import {
+  Button,
+  useAppDispatch,
+  useAppSelector,
+  useGetPostsRequest,
+} from '@shared';
 
 import { createPost, getPostById, getPosts } from './model/asyncThunks';
 
@@ -11,6 +16,10 @@ export const PostsPage = () => {
 
   const posts = useAppSelector(({ posts }) => posts.posts);
   // const currentPost = useAppSelector(({ posts }) => posts.currentPost);
+
+  const { posts: responsePost } = useGetPostsRequest();
+
+  console.log('responsePost', responsePost);
 
   const onCreatePost = () => {
     const post = {
