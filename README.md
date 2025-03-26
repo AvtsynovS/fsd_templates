@@ -72,6 +72,13 @@
 - Thunks рекомендуется размещать в слоях feature и ниже.
 - Reducers & работа с API рекомендуется размещать в слоях Pages и ниже.
 
+### Запросы в БД: React Query / TanStack
+
+Для работы с запросами в БД в шаблоне в качестве дополнительного варианта добавлена библиотека `React query`.
+
+- Добавлен `QueryClientProvider`.
+- Пример работы с запросами `src/shared/hooks/requestHooks.ts`
+
 ### ESlint settings
 
 В проекте настроен линтер ESlint, файл конфигурации находится в корне проекте `.eslintrc.js`
@@ -89,13 +96,13 @@
 - ✅️ Axios
 - ✅️ Store (на примере Redux Toolkit)
 - [ ] RTK API
-- [ ] React query API
+- ✅️ React query API
 - ✅️ Роутинг, приватный роутинг
 - ✅️ Обработчик ошибок
 - [ ] Локализация
 - [ ] Темизация
-- [ ] Валидация
-- [ ] Типизация
+- [ ] Валидация формы
+- ✅️ Типизация
 - [ ] Hooks & HOC
 - [ ] Уведомления
 - [ ] Авторизация и токены
@@ -107,4 +114,4 @@
 
 ### Feature Sliced Design документация
 
-[Feature Sliced Design](https://feature-sliced.design/ru/docs)
+[Feature Sliced Design](https://feature-sliced.github.io/documentation)
