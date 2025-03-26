@@ -1,1 +1,0 @@
-export { SecondEntity } from "./SecondEntity";

@@ -1,2 +1,1 @@
-export * from "./FirstEntity";
-export * from "./SecondEntity";
+export * from './Post';

@@ -1,2 +1,4 @@
-export * from "./FirstPage";
-export * from "./SecondPage";
+export * from './PostsPage';
+export * from './HomePage';
+export * from './BlogPage';
+export * from './SecondPage';

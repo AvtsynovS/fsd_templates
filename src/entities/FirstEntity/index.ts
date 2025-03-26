@@ -1,1 +1,0 @@
-export { FirstEntity } from "./FirstEntity";
