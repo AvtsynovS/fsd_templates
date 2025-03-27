@@ -1,2 +1,4 @@
 export { Post } from './Post';
-export type { PostType } from './PostProps';
+export * from './types';
+export * from './hooks';
+export * from './api';

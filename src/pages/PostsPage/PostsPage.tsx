@@ -1,13 +1,9 @@
 import { useEffect } from 'react';
 
+import { useGetPostsRequest } from '@entities';
 import { FirstFeature } from '@features';
 
-import {
-  Button,
-  useAppDispatch,
-  useAppSelector,
-  useGetPostsRequest,
-} from '@shared';
+import { Button, useAppDispatch, useAppSelector } from '@shared';
 
 import { createPost, getPostById, getPosts } from './model/asyncThunks';
 
