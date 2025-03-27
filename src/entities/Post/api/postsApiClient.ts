@@ -1,8 +1,6 @@
-import { BASE_URL } from '@shared';
+import { BASE_URL, httpClient } from '@shared';
 
 import { PostResponseType, PostsApiClientType } from '../types';
-
-import { httpClient } from './httpClient';
 
 const getPosts = async () => {
   const { data } = await httpClient.request<PostResponseType[]>({

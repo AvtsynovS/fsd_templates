@@ -1,0 +1,1 @@
+export { postsApiClient } from './postsApiClient';
