@@ -1,4 +1,4 @@
-import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
+import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import dotenv from 'dotenv';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
@@ -59,8 +59,8 @@ const config = (env: EnvType, argv: argv): Configuration => {
       new DefinePlugin({
         'process.env': JSON.stringify(process.env),
       }),
+      new ReactRefreshWebpackPlugin(),
     ],
-    // настраивает корректный стек-трейс для отслеживания ошибок в исходных файлах, вместо бандла
     devtool: 'inline-source-map',
     devServer: {
       host: HOST,
@@ -71,17 +71,11 @@ const config = (env: EnvType, argv: argv): Configuration => {
       static: {
         directory: paths.build, // Каталог для статики
       },
-      open: true, // Автоматически открывать браузер
+      open: true,
     },
     optimization: {
-      // minimize: false,
-      // runtimeChunk: false,
-      // sideEffects: true,
-      minimizer: [
-        new CssMinimizerPlugin({
-          parallel: true,
-        }),
-      ],
+      minimize: false,
+      runtimeChunk: false,
     },
     performance: {
       hints: false,
