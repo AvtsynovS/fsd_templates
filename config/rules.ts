@@ -52,9 +52,7 @@ const babelLoader = {
           ['@babel/preset-react', { runtime: 'automatic' }],
           '@babel/preset-typescript',
         ],
-        // plugins: [require.resolve("react-refresh/babel")].filter(
-        //   Boolean,
-        // ),
+        plugins: [require.resolve('react-refresh/babel')].filter(Boolean),
       },
     },
   ],

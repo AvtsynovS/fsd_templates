@@ -1,1 +1,1 @@
-export { ReactComponent as ErrorImage } from './errorImage.svg';
+export { ReactComponent as ErrorImage } from './error-image.svg';

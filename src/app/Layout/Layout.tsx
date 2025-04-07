@@ -2,6 +2,8 @@ import { Outlet } from 'react-router';
 
 import styled from 'styled-components';
 
+import { Header } from '@shared';
+
 const StyledWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -14,7 +16,7 @@ const StyledContent = styled.main`
 export const Layout = () => {
   return (
     <StyledWrapper>
-      <header>Header</header>
+      <Header />
       <StyledContent>
         <Outlet />
       </StyledContent>
