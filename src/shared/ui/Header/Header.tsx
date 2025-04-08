@@ -9,9 +9,10 @@ const StyledHeader = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  /* TODO добавить Enum для отступов */
   padding: 20px 3vw;
-  /* TODO заменить после настройки темы */
-  background-color: #0097a7;
+  background-color: ${({ theme }) => theme.bgColors.primary};
+  /* TODO Добавить тени в тему? */
   box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
     rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
   & :first-child {
@@ -25,7 +26,7 @@ const StyledMenu = styled.div`
 `;
 
 const StyledButton = styled(Button)`
-  font-weight: 700;
+  color: ${({ theme }) => theme.colors.white};
 `;
 
 const StyledTitle = styled(Title)`
@@ -44,7 +45,7 @@ export const Header = () => {
         Home Page
       </StyledTitle>
       <StyledMenu>
-        <StyledButton
+        <Button
           label="Sing In"
           size="small"
           view="secondary"
