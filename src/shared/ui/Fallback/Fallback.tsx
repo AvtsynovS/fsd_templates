@@ -31,16 +31,16 @@ const StyledDescribe = styled.div`
   }
 `;
 
-// TODO нужно добавить типизацию
 const StyledLink = styled(Link)`
   padding: 10px;
+  color: ${({ theme }) => theme.colors.link};
 
   &:hover {
-    color: red;
+    filter: brightness(85%);
   }
 
   &:active {
-    color: darkred;
+    filter: brightness(65%);
   }
 `;
 

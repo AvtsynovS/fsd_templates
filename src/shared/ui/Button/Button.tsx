@@ -1,7 +1,15 @@
 import styled from 'styled-components';
 
 type ButtonType = 'button' | 'reset' | 'submit';
-type ButtonView = 'default' | 'primary' | 'secondary' | 'ghost' | 'link';
+type ButtonView =
+  | 'primary'
+  | 'secondary'
+  | 'ghost'
+  | 'link'
+  | 'default'
+  | 'success'
+  | 'warning'
+  | 'danger';
 type ButtonWidth = 'default' | 'full';
 // TODO при необходимости вынести в общие типы
 type ButtonSize = 'small' | 'medium' | 'large';
@@ -21,7 +29,7 @@ type ButtonProps = {
 };
 
 const StyledButton = styled.button<{
-  view: ButtonView;
+  $view: ButtonView;
   width: ButtonWidth;
   size: ButtonSize;
 }>`
@@ -32,8 +40,28 @@ const StyledButton = styled.button<{
   width: ${({ width }) => width === 'full' && '100%'};
   border-radius: 0.5em;
   height: 100%;
-  /* TODO прокинуть цвет из темы или все настройки border */
-  border: ${({ view }) => (view === 'link' ? 'none' : '1px solid #034569')};
+  border: ${({ $view, disabled, theme }) => {
+    if (disabled) return theme.borderColor.disabled;
+
+    switch ($view) {
+      case 'primary':
+        return `1px solid ${theme.borderColor.primary}`;
+      case 'success':
+        return `1px solid ${theme.borderColor.success}`;
+      case 'warning':
+        return `1px solid ${theme.borderColor.warning}`;
+      case 'danger':
+        return `1px solid ${theme.borderColor.danger}`;
+      case 'secondary':
+      case 'ghost':
+        return `1px solid ${theme.borderColor.secondary}`;
+      case 'default':
+        return `1px solid ${theme.borderColor.default}`;
+      case 'link':
+      default:
+        return 'transparent';
+    }
+  }};
   padding: ${({ size }) => {
     switch (size) {
       case 'small':
@@ -54,42 +82,72 @@ const StyledButton = styled.button<{
         return '16px';
     }
   }};
-  background-color: ${({ view }) => {
-    switch (view) {
+  font-weight: 500;
+  background-color: ${({ $view, disabled, theme }) => {
+    if (disabled) return theme.bgButton.disabled;
+
+    switch ($view) {
       case 'primary':
-        return '#007a88';
+        return theme.bgButton.primary;
       case 'secondary':
-        return '#f9f9f9';
+        return theme.bgButton.secondary;
       case 'default':
-        return '#ffffff';
-      case 'link':
+        return theme.bgButton.default;
+      case 'success':
+        return theme.bgButton.success;
+      case 'warning':
+        return theme.bgButton.warning;
+      case 'danger':
+        return theme.bgButton.danger;
       case 'ghost':
+      case 'link':
       default:
         return 'transparent';
     }
   }};
-  color: ${({ view }) => {
-    switch (view) {
+  color: ${({ $view, disabled, theme }) => {
+    if (disabled) return theme.colors.disabled;
+
+    switch ($view) {
       case 'primary':
-        return '#fff';
-      case 'link':
-        return '#1826B0';
+        return theme.colors.default;
       case 'secondary':
+        return theme.colors.secondary;
       case 'ghost':
+        return theme.colors.ghost;
+      case 'link':
+        return theme.colors.link;
+      case 'success':
+        return theme.colors.success;
+      case 'warning':
+        return theme.colors.warning;
+      case 'danger':
+        return theme.colors.danger;
       default:
-        return '#212121';
+        return theme.colors.default;
     }
   }};
   transition: all 0.3s;
   cursor: ${({ disabled }) => (disabled ? 'default' : 'pointer')};
 
-  &:hover {
-    filter: brightness(95%);
+  &:hover:not(:disabled) {
+    filter: brightness(85%);
   }
 
-  &:active {
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
-      rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  &:active:not(:disabled) {
+    box-shadow: ${({ $view }) =>
+      $view !== 'link' &&
+      `rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+      rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset`};
+  }
+
+  &:focus:not(:disabled) {
+    box-shadow: ${({ $view }) =>
+      $view !== 'link' && `0 0 8px -2px rgba(0, 0, 0, 0.25) inset`};
+  }
+
+  &:focus-visible:not(:disabled) {
+    outline: unset;
   }
 `;
 
@@ -110,7 +168,7 @@ export const Button = ({
     <StyledButton
       className={className}
       type={type}
-      view={view}
+      $view={view}
       width={width}
       size={size}
       disabled={disabled}

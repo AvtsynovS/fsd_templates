@@ -13,7 +13,7 @@ type ColorType =
   | 'secondary'
   | 'ghost'
   | 'link'
-  | 'info'
+  | 'default'
   | 'success'
   | 'warning'
   | 'danger';
@@ -33,28 +33,26 @@ type TitleProps = {
 
 const Component = styled('div')<TitleProps>`
   padding: ${({ padding }) => (padding ? padding : '0')};
-  /* TODO цвет получаем из темы */
-  color: ${({ color, disabled }) => {
-    if (disabled) return '#C7C7C7';
+  color: ${({ color, disabled, theme }) => {
+    if (disabled) return theme.colors.disabled;
 
-    console.log('color', color);
     switch (color) {
       case 'primary':
-        return '#fff';
+        return theme.colors.primary;
       case 'link':
-        return '#1826B0';
-      case 'info':
-        return '#81D8D0';
+        return theme.colors.link;
       case 'success':
-        return '#2C5F34';
+        return theme.colors.success;
       case 'warning':
-        return '#FFA500';
+        return theme.colors.warning;
       case 'danger':
-        return '#942222';
+        return theme.colors.danger;
       case 'secondary':
+        return theme.colors.secondary;
       case 'ghost':
+        return theme.colors.ghost;
       default:
-        return '#212121';
+        return theme.colors.default;
     }
   }};
   font-style: ${({ italic }) => (italic ? 'italic' : 'normal')};
