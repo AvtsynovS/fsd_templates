@@ -7,10 +7,11 @@ import React, {
 
 import { ThemeProvider } from 'styled-components';
 
+import { SupportedTheme } from '../lib';
+
 import { onChangeTheme, getCurrentTheme } from './helpers';
 import { getTheme } from './helpers/helpers';
 import { ThemeContext } from './ThemeContext';
-import { SupportedTheme } from './types';
 
 export const ThemeWrapper = ({ children }: PropsWithChildren) => {
   const [theme, setTheme] = useState<SupportedTheme>(() => getCurrentTheme());

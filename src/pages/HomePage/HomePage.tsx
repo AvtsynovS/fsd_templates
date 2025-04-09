@@ -1,7 +1,7 @@
 import { Link } from 'react-router';
 import styled from 'styled-components';
 
-import { Button, Title } from '@shared';
+import { Button, ColorType, Title } from '@shared';
 
 const StyledWrapper = styled.div`
   display: flex;
@@ -36,15 +36,15 @@ export const HomePage = () => {
       </StyledLink>
 
       <StyledWrapperBtn>
-        <Button view="primary" label="PRIMARY" />
-        <Button view="secondary" label="SECONDARY" />
-        <Button view="ghost" label="GHOST" />
-        <Button view="link" label="LINK" />
-        <Button view="default" label="DEFAULT" />
-        <Button view="success" label="SUCCESS" />
-        <Button view="warning" label="WARNING" />
-        <Button view="danger" label="DANGER" />
-        <Button view="primary" label="DISABLED" disabled />
+        <Button view={ColorType.PRIMARY} label="PRIMARY" />
+        <Button view={ColorType.SECONDARY} label="SECONDARY" />
+        <Button view={ColorType.GHOST} label="GHOST" />
+        <Button view={ColorType.LINK} label="LINK" />
+        <Button view={ColorType.DEFAULT} label="DEFAULT" />
+        <Button view={ColorType.SUCCESS} label="SUCCESS" />
+        <Button view={ColorType.WARNING} label="WARNING" />
+        <Button view={ColorType.DANGER} label="DANGER" />
+        <Button view={ColorType.PRIMARY} label="DISABLED" disabled />
       </StyledWrapperBtn>
     </StyledWrapper>
   );

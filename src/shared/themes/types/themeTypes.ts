@@ -1,8 +1,3 @@
-export enum SupportedTheme {
-  LIGHT = 'light',
-  DARK = 'dark',
-}
-
 type ColorType = {
   primary: string;
   secondary: string;
