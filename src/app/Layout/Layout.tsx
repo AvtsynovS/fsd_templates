@@ -7,11 +7,12 @@ import { Header } from '@shared';
 const StyledWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  height: 100vh;
   background-color: ${({ theme }) => theme.bgColors.default};
 `;
 
 const StyledContent = styled.main`
-  flex: 1 0 auto;
+  /* flex: 1 0 auto; */
 `;
 
 export const Layout = () => {

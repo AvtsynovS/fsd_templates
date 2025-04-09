@@ -10,7 +10,7 @@ const StyledWrapper = styled.div`
   align-items: center;
   justify-content: center;
   position: relative;
-  margin: 0 20px;
+  margin: ${({ theme }) => `${theme.space.none} ${theme.space.l}`};
   width: 100vw;
   height: 100vh;
 `;
@@ -19,20 +19,20 @@ const StyledDescribe = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10px;
+  padding: ${({ theme }) => theme.space.s};
   font-size: 18px;
 
   & h4 {
-    margin: 0;
+    margin: ${({ theme }) => theme.space.none};
   }
 
   & p {
-    margin-bottom: 0;
+    margin-bottom: ${({ theme }) => theme.space.none};
   }
 `;
 
 const StyledLink = styled(Link)`
-  padding: 10px;
+  padding: ${({ theme }) => theme.space.s};
   color: ${({ theme }) => theme.colors.link};
 
   &:hover {

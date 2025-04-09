@@ -28,7 +28,7 @@ const StyledButton = styled.button<{
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 5px;
+  gap: ${({ theme }) => theme.space.xs};
   width: ${({ width }) => width === 'full' && '100%'};
   border-radius: 0.5em;
   height: 100%;
@@ -54,6 +54,7 @@ const StyledButton = styled.button<{
         return 'transparent';
     }
   }};
+  /* TODO Посмотреть как выглядит при медиа-запросах */
   padding: ${({ size }) => {
     switch (size) {
       case SizeType.SMALL:
@@ -67,6 +68,7 @@ const StyledButton = styled.button<{
   font-size: ${({ size }) => {
     switch (size) {
       case SizeType.SMALL:
+        // TODO вынести размеры шрифта в тему?
         return '14px';
       case SizeType.LARGE:
         return '18px';

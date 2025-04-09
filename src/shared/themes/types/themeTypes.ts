@@ -10,6 +10,17 @@ type ColorType = {
   disabled: string;
 };
 
+export type SizeType = {
+  none: string;
+  xxs: string;
+  xs: string;
+  s: string;
+  m: string;
+  l: string;
+  xl: string;
+  xxl: string;
+};
+
 type BackgroundColor = Omit<ColorType, 'ghost' | 'link'>;
 type BorderColorType = Omit<ColorType, 'ghost' | 'link'>;
 
@@ -18,4 +29,5 @@ export interface AppThemeType {
   bgColors: BackgroundColor;
   bgButton: BackgroundColor;
   borderColor: BorderColorType;
+  space: SizeType;
 }
