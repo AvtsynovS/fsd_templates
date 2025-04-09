@@ -21,7 +21,7 @@ type TitleProps = {
 
 const Component = styled('div')<TitleProps>`
   padding: ${({ padding, theme }) =>
-    padding ? padding : `${theme.space.none}`};
+    padding ? padding : `${theme.spaces.none}`};
   color: ${({ color, disabled, theme }) => {
     if (disabled) return theme.colors.disabled;
 

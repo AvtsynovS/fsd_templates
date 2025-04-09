@@ -10,7 +10,7 @@ const StyledHeader = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: ${({ theme }) => `${theme.space.l} 3vw`};
+  padding: ${({ theme }) => `${theme.spaces.l} 3vw`};
   background-color: ${({ theme }) => theme.bgColors.primary};
   /* TODO Добавить тени в тему? */
   box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
@@ -22,7 +22,7 @@ const StyledHeader = styled.header`
 
 const StyledMenu = styled.div`
   display: flex;
-  column-gap: ${({ theme }) => theme.space.l};
+  column-gap: ${({ theme }) => theme.spaces.l};
 `;
 
 const StyledButton = styled(Button)`
@@ -30,7 +30,7 @@ const StyledButton = styled(Button)`
 `;
 
 const StyledTitle = styled(Title)`
-  margin: ${({ theme }) => theme.space.none};
+  margin: ${({ theme }) => theme.spaces.none};
 `;
 
 export const Header = () => {

@@ -6,14 +6,14 @@ import { Button, ColorType, Divider, Title, WeightType } from '@shared';
 const StyledWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  margin: ${({ theme }) => `${theme.space.none} 10vh`};
-  row-gap: ${({ theme }) => theme.space.l};
+  margin: ${({ theme }) => `${theme.spaces.none} 10vh`};
+  row-gap: ${({ theme }) => theme.spaces.l};
 `;
 
 const StyledWrapperBtn = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: ${({ theme }) => theme.space.l};
+  gap: ${({ theme }) => theme.spaces.l};
 
   & button {
     font-weight: ${WeightType.MEDIUM};

@@ -29,5 +29,5 @@ export interface AppThemeType {
   bgColors: BackgroundColor;
   bgButton: BackgroundColor;
   borderColor: BorderColorType;
-  space: SizeType;
+  spaces: SizeType;
 }

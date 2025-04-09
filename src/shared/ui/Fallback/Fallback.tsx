@@ -10,7 +10,7 @@ const StyledWrapper = styled.div`
   align-items: center;
   justify-content: center;
   position: relative;
-  margin: ${({ theme }) => `${theme.space.none} ${theme.space.l}`};
+  margin: ${({ theme }) => `${theme.spaces.none} ${theme.spaces.l}`};
   width: 100vw;
   height: 100vh;
 `;
@@ -19,20 +19,20 @@ const StyledDescribe = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: ${({ theme }) => theme.space.s};
+  padding: ${({ theme }) => theme.spaces.s};
   font-size: 18px;
 
   & h4 {
-    margin: ${({ theme }) => theme.space.none};
+    margin: ${({ theme }) => theme.spaces.none};
   }
 
   & p {
-    margin-bottom: ${({ theme }) => theme.space.none};
+    margin-bottom: ${({ theme }) => theme.spaces.none};
   }
 `;
 
 const StyledLink = styled(Link)`
-  padding: ${({ theme }) => theme.space.s};
+  padding: ${({ theme }) => theme.spaces.s};
   color: ${({ theme }) => theme.colors.link};
 
   &:hover {

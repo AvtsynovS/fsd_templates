@@ -1,1 +1,1 @@
-export { space } from './space';
+export { spaces } from './space';

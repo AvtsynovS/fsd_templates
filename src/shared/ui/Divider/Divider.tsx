@@ -23,11 +23,11 @@ const DividerWrapper = styled.div<{
   align-items: center;
   margin: ${({ direction, theme }) =>
     direction === 'horizontal'
-      ? `${theme.space.l} ${theme.space.none}`
-      : `${theme.space.l} ${theme.space.l}`};
+      ? `${theme.spaces.l} ${theme.spaces.none}`
+      : `${theme.spaces.l} ${theme.spaces.l}`};
   width: ${({ direction }) => direction === 'horizontal' && '100%'};
   height: ${({ direction }) => direction === 'vertical' && '100%'};
-  gap: ${({ theme }) => theme.space.s};
+  gap: ${({ theme }) => theme.spaces.s};
   color: ${({ color, theme }) => theme.colors[color]};
 
   writing-mode: ${({ direction }) =>

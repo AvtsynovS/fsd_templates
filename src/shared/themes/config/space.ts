@@ -1,6 +1,6 @@
 import { SizeType } from '../types';
 
-export const space: SizeType = {
+export const spaces: SizeType = {
   none: '0',
   xxs: '2px',
   xs: '4px',

@@ -28,7 +28,7 @@ const StyledButton = styled.button<{
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: ${({ theme }) => theme.space.xs};
+  gap: ${({ theme }) => theme.spaces.xs};
   width: ${({ width }) => width === 'full' && '100%'};
   border-radius: 0.5em;
   height: 100%;
