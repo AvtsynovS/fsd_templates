@@ -1,5 +1,7 @@
 import { DefaultTheme } from 'styled-components';
 
+import { spaces } from './config';
+
 export const lightTheme: DefaultTheme = {
   colors: {
     primary: 'rgb(30, 30, 30)',
@@ -41,4 +43,5 @@ export const lightTheme: DefaultTheme = {
     danger: 'rgb(250, 231, 232)',
     disabled: 'rgb(233, 230, 230)',
   },
+  spaces: spaces,
 };

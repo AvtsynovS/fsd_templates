@@ -1,1 +1,1 @@
-export type { AppThemeType } from './themeTypes';
+export type { AppThemeType, SizeType } from './themeTypes';

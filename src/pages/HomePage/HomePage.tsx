@@ -1,21 +1,22 @@
 import { Link } from 'react-router';
 import styled from 'styled-components';
 
-import { Button, ColorType, Title } from '@shared';
+import { Button, ColorType, Divider, Title, WeightType } from '@shared';
 
 const StyledWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 0 10vh;
-  row-gap: 20px;
+  margin: ${({ theme }) => `${theme.spaces.none} 10vh`};
+  row-gap: ${({ theme }) => theme.spaces.l};
 `;
 
 const StyledWrapperBtn = styled.div`
   display: flex;
-  gap: 20px;
+  flex-wrap: wrap;
+  gap: ${({ theme }) => theme.spaces.l};
 
   & button {
-    font-weight: 500;
+    font-weight: ${WeightType.MEDIUM};
   }
 `;
 
@@ -34,7 +35,7 @@ export const HomePage = () => {
       <StyledLink to="/blog">
         <Button label="Go to Blog" />
       </StyledLink>
-
+      <Divider />
       <StyledWrapperBtn>
         <Button view={ColorType.PRIMARY} label="PRIMARY" />
         <Button view={ColorType.SECONDARY} label="SECONDARY" />

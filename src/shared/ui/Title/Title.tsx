@@ -20,7 +20,8 @@ type TitleProps = {
 };
 
 const Component = styled('div')<TitleProps>`
-  padding: ${({ padding }) => (padding ? padding : '0')};
+  padding: ${({ padding, theme }) =>
+    padding ? padding : `${theme.spaces.none}`};
   color: ${({ color, disabled, theme }) => {
     if (disabled) return theme.colors.disabled;
 
