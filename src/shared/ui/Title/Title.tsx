@@ -1,22 +1,10 @@
 import React from 'react';
+
 import { styled } from 'styled-components';
 
-type WeightType = {
-  weight?: 200 | 300 | 400 | 500 | 600 | 700;
-};
+import { ColorType, WeightType } from '../../lib';
 
 type TitleType = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
-
-// TODO при необходимости вынести в общие типы
-type ColorType =
-  | 'primary'
-  | 'secondary'
-  | 'ghost'
-  | 'link'
-  | 'default'
-  | 'success'
-  | 'warning'
-  | 'danger';
 
 type TitleProps = {
   children: React.ReactNode;
@@ -37,20 +25,20 @@ const Component = styled('div')<TitleProps>`
     if (disabled) return theme.colors.disabled;
 
     switch (color) {
-      case 'primary':
+      case ColorType.PRIMARY:
         return theme.colors.primary;
-      case 'link':
-        return theme.colors.link;
-      case 'success':
-        return theme.colors.success;
-      case 'warning':
-        return theme.colors.warning;
-      case 'danger':
-        return theme.colors.danger;
-      case 'secondary':
+      case ColorType.SECONDARY:
         return theme.colors.secondary;
-      case 'ghost':
+      case ColorType.GHOST:
         return theme.colors.ghost;
+      case ColorType.LINK:
+        return theme.colors.link;
+      case ColorType.SUCCESS:
+        return theme.colors.success;
+      case ColorType.WARNING:
+        return theme.colors.warning;
+      case ColorType.DANGER:
+        return theme.colors.danger;
       default:
         return theme.colors.default;
     }

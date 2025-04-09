@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 import { LogIn } from '../../assets';
 import Logo from '../../assets/images/logo-primary.png';
+import { ColorType, SizeType } from '../../lib';
 import { Button } from '../Button';
 import { Title } from '../Title';
 
@@ -47,8 +48,8 @@ export const Header = () => {
       <StyledMenu>
         <Button
           label="Sing In"
-          size="small"
-          view="secondary"
+          size={SizeType.SMALL}
+          view={ColorType.SECONDARY}
           iconRight={<LogIn />}
           onClick={() => {
             console.log('sing in');
@@ -56,7 +57,7 @@ export const Header = () => {
         />
         <StyledButton
           label="Registration"
-          size="small"
+          size={SizeType.SMALL}
           onClick={() => {
             console.log('Registration');
           }}

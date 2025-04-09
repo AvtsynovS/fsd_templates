@@ -1,37 +1,29 @@
 import styled from 'styled-components';
 
+import { ColorType, SizeType } from '../../lib';
+
 type ButtonType = 'button' | 'reset' | 'submit';
-type ButtonView =
-  | 'primary'
-  | 'secondary'
-  | 'ghost'
-  | 'link'
-  | 'default'
-  | 'success'
-  | 'warning'
-  | 'danger';
 type ButtonWidth = 'default' | 'full';
-// TODO при необходимости вынести в общие типы
-type ButtonSize = 'small' | 'medium' | 'large';
 
 type ButtonProps = {
   label?: string;
-  view?: ButtonView;
+  // TODO возможно стоит вынести цвета как отдельный проп
+  view?: ColorType;
   type?: ButtonType;
   disabled?: boolean;
   onlyIcon?: boolean;
   iconLeft?: React.ReactNode;
   iconRight?: React.ReactNode;
   width?: ButtonWidth;
-  size?: ButtonSize;
+  size?: SizeType;
   className?: string;
   onClick?: () => void;
 };
 
 const StyledButton = styled.button<{
-  $view: ButtonView;
+  $view: ColorType;
   width: ButtonWidth;
-  size: ButtonSize;
+  size: SizeType;
 }>`
   display: flex;
   align-items: center;
@@ -44,29 +36,29 @@ const StyledButton = styled.button<{
     if (disabled) return theme.borderColor.disabled;
 
     switch ($view) {
-      case 'primary':
+      case ColorType.PRIMARY:
         return `1px solid ${theme.borderColor.primary}`;
-      case 'success':
+      case ColorType.SUCCESS:
         return `1px solid ${theme.borderColor.success}`;
-      case 'warning':
+      case ColorType.WARNING:
         return `1px solid ${theme.borderColor.warning}`;
-      case 'danger':
+      case ColorType.DANGER:
         return `1px solid ${theme.borderColor.danger}`;
-      case 'secondary':
-      case 'ghost':
+      case ColorType.SECONDARY:
+      case ColorType.GHOST:
         return `1px solid ${theme.borderColor.secondary}`;
-      case 'default':
+      case ColorType.DEFAULT:
         return `1px solid ${theme.borderColor.default}`;
-      case 'link':
+      case ColorType.LINK:
       default:
         return 'transparent';
     }
   }};
   padding: ${({ size }) => {
     switch (size) {
-      case 'small':
+      case SizeType.SMALL:
         return '0.6em 0.8em';
-      case 'large':
+      case SizeType.LARGE:
         return '0.8em 1em';
       default:
         return '0.7em 0.9em';
@@ -74,9 +66,9 @@ const StyledButton = styled.button<{
   }};
   font-size: ${({ size }) => {
     switch (size) {
-      case 'small':
+      case SizeType.SMALL:
         return '14px';
-      case 'large':
+      case SizeType.LARGE:
         return '18px';
       default:
         return '16px';
@@ -87,20 +79,20 @@ const StyledButton = styled.button<{
     if (disabled) return theme.bgButton.disabled;
 
     switch ($view) {
-      case 'primary':
+      case ColorType.PRIMARY:
         return theme.bgButton.primary;
-      case 'secondary':
+      case ColorType.SECONDARY:
         return theme.bgButton.secondary;
-      case 'default':
+      case ColorType.DEFAULT:
         return theme.bgButton.default;
-      case 'success':
+      case ColorType.SUCCESS:
         return theme.bgButton.success;
-      case 'warning':
+      case ColorType.WARNING:
         return theme.bgButton.warning;
-      case 'danger':
+      case ColorType.DANGER:
         return theme.bgButton.danger;
-      case 'ghost':
-      case 'link':
+      case ColorType.GHOST:
+      case ColorType.LINK:
       default:
         return 'transparent';
     }
@@ -109,19 +101,19 @@ const StyledButton = styled.button<{
     if (disabled) return theme.colors.disabled;
 
     switch ($view) {
-      case 'primary':
+      case ColorType.PRIMARY:
         return theme.colors.default;
-      case 'secondary':
+      case ColorType.SECONDARY:
         return theme.colors.secondary;
-      case 'ghost':
+      case ColorType.GHOST:
         return theme.colors.ghost;
-      case 'link':
+      case ColorType.LINK:
         return theme.colors.link;
-      case 'success':
+      case ColorType.SUCCESS:
         return theme.colors.success;
-      case 'warning':
+      case ColorType.WARNING:
         return theme.colors.warning;
-      case 'danger':
+      case ColorType.DANGER:
         return theme.colors.danger;
       default:
         return theme.colors.default;
@@ -154,9 +146,9 @@ const StyledButton = styled.button<{
 export const Button = ({
   label,
   type = 'button',
-  view = 'primary',
+  view = ColorType.PRIMARY,
   width = 'default',
-  size = 'medium',
+  size = SizeType.MEDIUM,
   disabled,
   iconLeft,
   iconRight,

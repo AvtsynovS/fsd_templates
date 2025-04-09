@@ -1,6 +1,6 @@
+import { SupportedTheme } from '../../lib';
 import { darkTheme } from '../darkTheme';
 import { lightTheme } from '../lightTheme';
-import { SupportedTheme } from '../types';
 
 export const getCurrentTheme = () => {
   const currentTheme = localStorage.getItem('theme');
