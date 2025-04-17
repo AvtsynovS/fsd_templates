@@ -4,6 +4,7 @@ import { LogIn } from '../../assets';
 import Logo from '../../assets/images/logo-primary.png';
 import { ColorType, SizeType } from '../../lib';
 import { Button } from '../Button';
+import { ThemeButton } from '../ThemeButton';
 import { Title } from '../Title';
 
 const StyledHeader = styled.header`
@@ -15,13 +16,14 @@ const StyledHeader = styled.header`
   /* TODO Добавить тени в тему? */
   box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
     rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
-  & :first-child {
+  & div > img {
     height: 2rem;
   }
 `;
 
 const StyledMenu = styled.div`
   display: flex;
+  align-items: center;
   column-gap: ${({ theme }) => theme.spaces.l};
 `;
 
@@ -45,6 +47,7 @@ export const Header = () => {
         Home Page
       </StyledTitle>
       <StyledMenu>
+        <ThemeButton />
         <Button
           label="Sing In"
           size={SizeType.SMALL}

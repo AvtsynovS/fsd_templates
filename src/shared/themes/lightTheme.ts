@@ -43,5 +43,12 @@ export const lightTheme: DefaultTheme = {
     danger: 'rgb(250, 231, 232)',
     disabled: 'rgb(233, 230, 230)',
   },
+  controls: {
+    switcher: {
+      bg: 'rgb(222, 148, 10)',
+      color: 'rgb(153,153,153)',
+      border: '1px solid rgb(167, 112, 10)',
+    },
+  },
   spaces: spaces,
 };
