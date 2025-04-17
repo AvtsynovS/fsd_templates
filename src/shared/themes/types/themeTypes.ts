@@ -21,6 +21,14 @@ export type SizeType = {
   xxl: string;
 };
 
+type ComponentControlType = {
+  bg: string;
+  color: string;
+  border: string;
+};
+
+type ControlType = Record<string, ComponentControlType>;
+
 type BackgroundColor = Omit<ColorType, 'ghost' | 'link'>;
 type BorderColorType = Omit<ColorType, 'ghost' | 'link'>;
 
@@ -29,5 +37,6 @@ export interface AppThemeType {
   bgColors: BackgroundColor;
   bgButton: BackgroundColor;
   borderColor: BorderColorType;
+  controls: ControlType;
   spaces: SizeType;
 }

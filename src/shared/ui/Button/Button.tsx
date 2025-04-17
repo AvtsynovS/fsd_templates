@@ -31,7 +31,6 @@ const StyledButton = styled.button<{
   gap: ${({ theme }) => theme.spaces.xs};
   width: ${({ width }) => width === 'full' && '100%'};
   border-radius: 0.5em;
-  height: 100%;
   border: ${({ $view, disabled, theme }) => {
     if (disabled) return theme.borderColor.disabled;
 

@@ -43,5 +43,12 @@ export const darkTheme: DefaultTheme = {
     danger: 'rgb(250, 231, 232)',
     disabled: 'rgb(75, 75, 75)',
   },
+  controls: {
+    switcher: {
+      bg: `rgb(254,187,46)`,
+      color: 'rgb(153,153,153)',
+      border: '1px solid rgb(240, 169, 15)',
+    },
+  },
   spaces: spaces,
 };
