@@ -1,5 +1,3 @@
-import { StatusType } from '../..//types';
-
 type ColorType = {
   primary: string;
   secondary: string;
