@@ -32,22 +32,22 @@ const StyledButton = styled.button<{
   width: ${({ width }) => width === 'full' && '100%'};
   border-radius: 0.5em;
   border: ${({ $view, disabled, theme }) => {
-    if (disabled) return theme.borderColor.disabled;
+    if (disabled) return theme.controls.button.border.disabled;
 
     switch ($view) {
       case ColorType.PRIMARY:
-        return `1px solid ${theme.borderColor.primary}`;
+        return theme.controls.button.border.primary;
       case ColorType.SUCCESS:
-        return `1px solid ${theme.borderColor.success}`;
+        return theme.controls.button.border.success;
       case ColorType.WARNING:
-        return `1px solid ${theme.borderColor.warning}`;
-      case ColorType.DANGER:
-        return `1px solid ${theme.borderColor.danger}`;
+        return theme.controls.button.border.warning;
+      case ColorType.ERROR:
+        return theme.controls.button.border.error;
       case ColorType.SECONDARY:
       case ColorType.GHOST:
-        return `1px solid ${theme.borderColor.secondary}`;
+        return theme.controls.button.border.secondary;
       case ColorType.DEFAULT:
-        return `1px solid ${theme.borderColor.default}`;
+        return theme.controls.button.border.default;
       case ColorType.LINK:
       default:
         return 'transparent';
@@ -77,49 +77,31 @@ const StyledButton = styled.button<{
   }};
   font-weight: 500;
   background-color: ${({ $view, disabled, theme }) => {
-    if (disabled) return theme.bgButton.disabled;
+    if (disabled) return theme.controls.button.bg.disabled;
 
     switch ($view) {
       case ColorType.PRIMARY:
-        return theme.bgButton.primary;
+        return theme.controls.button.bg.primary;
       case ColorType.SECONDARY:
-        return theme.bgButton.secondary;
+        return theme.controls.button.bg.secondary;
       case ColorType.DEFAULT:
-        return theme.bgButton.default;
+        return theme.controls.button.bg.default;
       case ColorType.SUCCESS:
-        return theme.bgButton.success;
+        return theme.controls.button.bg.success;
       case ColorType.WARNING:
-        return theme.bgButton.warning;
-      case ColorType.DANGER:
-        return theme.bgButton.danger;
+        return theme.controls.button.bg.warning;
+      case ColorType.ERROR:
+        return theme.controls.button.bg.error;
       case ColorType.GHOST:
       case ColorType.LINK:
       default:
         return 'transparent';
     }
   }};
-  color: ${({ $view, disabled, theme }) => {
-    if (disabled) return theme.colors.disabled;
-
-    switch ($view) {
-      case ColorType.PRIMARY:
-        return theme.colors.default;
-      case ColorType.SECONDARY:
-        return theme.colors.secondary;
-      case ColorType.GHOST:
-        return theme.colors.ghost;
-      case ColorType.LINK:
-        return theme.colors.link;
-      case ColorType.SUCCESS:
-        return theme.colors.success;
-      case ColorType.WARNING:
-        return theme.colors.warning;
-      case ColorType.DANGER:
-        return theme.colors.danger;
-      default:
-        return theme.colors.default;
-    }
-  }};
+  color: ${({ $view, disabled, theme }) =>
+    disabled
+      ? theme.controls.button.color.disabled
+      : theme.controls.button.color[$view]};
   transition: all 0.3s;
   cursor: ${({ disabled }) => (disabled ? 'default' : 'pointer')};
 

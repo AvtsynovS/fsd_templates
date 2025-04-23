@@ -1,2 +1,1 @@
-export * from "./FirstWidget";
-export * from "./SecondWidget";
+export * from './UserSettings';

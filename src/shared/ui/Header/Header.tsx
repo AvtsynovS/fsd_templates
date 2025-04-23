@@ -12,7 +12,7 @@ const StyledHeader = styled.header`
   justify-content: space-between;
   align-items: center;
   padding: ${({ theme }) => `${theme.spaces.l} 3vw`};
-  background-color: ${({ theme }) => theme.bgColors.primary};
+  background-color: ${({ theme }) => theme.bg.primary};
   /* TODO Добавить тени в тему? */
   box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
     rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
@@ -25,10 +25,6 @@ const StyledMenu = styled.div`
   display: flex;
   align-items: center;
   column-gap: ${({ theme }) => theme.spaces.l};
-`;
-
-const StyledButton = styled(Button)`
-  color: ${({ theme }) => theme.colors.white};
 `;
 
 const StyledTitle = styled(Title)`
@@ -57,7 +53,7 @@ export const Header = () => {
             console.log('sing in');
           }}
         />
-        <StyledButton
+        <Button
           label="Registration"
           size={SizeType.SMALL}
           onClick={() => {

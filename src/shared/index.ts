@@ -6,3 +6,5 @@ export * from './hooks';
 export * from './assets';
 export * from './themes';
 export * from './lib';
+export * from './utils';
+export * from './types';

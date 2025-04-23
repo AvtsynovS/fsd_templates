@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components';
 
 import { ColorType } from '../../lib';
+import { DirectionType } from '../../types';
 
-type DirectionType = 'horizontal' | 'vertical';
 type AlignType = 'start' | 'center' | 'end';
 
 type DividerProps = {

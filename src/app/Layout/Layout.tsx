@@ -7,8 +7,8 @@ import { Header } from '@shared';
 const StyledWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  background-color: ${({ theme }) => theme.bgColors.default};
+  background-color: ${({ theme }) => theme.bg.default};
+  color: ${({ theme }) => theme.colors.default};
 `;
 
 const StyledContent = styled.main`

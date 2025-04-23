@@ -1,14 +1,25 @@
-import { useState } from 'react';
+import { useId, useState } from 'react';
 
 import styled from 'styled-components';
 
 import { SizeType } from '@shared';
 
+type SwitcherProps = {
+  name: string;
+  onChange?: (
+    checked: boolean,
+    event: React.ChangeEvent<HTMLInputElement>,
+  ) => void;
+  label?: string;
+  size?: SizeType;
+  disabled?: boolean;
+  className?: string;
+};
+
 const StyledContainer = styled.div<{ size?: SizeType }>`
   display: flex;
-  gap: ${({ theme }) => theme.spaces.s};
   align-items: center;
-  color: ${({ theme }) => theme.colors.default};
+  gap: ${({ theme }) => theme.spaces.s};
 
   & > div {
     position: relative;
@@ -40,7 +51,7 @@ const StyledLabel = styled.label<{
   // TODO Вынести радиус в тему?
   border-radius: 20px;
   margin: ${({ theme }) => theme.spaces.none};
-  border: ${({ theme }) => theme.controls.switcher.border};
+  border: ${({ theme }) => theme.controls.switcher.border.default};
 
   &:hover:not(:disabled) {
     filter: brightness(90%);
@@ -78,8 +89,8 @@ const StyledLabel = styled.label<{
     padding-left: ${({ theme }) => theme.spaces.s};
     background-color: ${({ disabled, theme }) =>
       disabled
-        ? `${theme.bgColors.disabled}`
-        : `${theme.controls.switcher.bg}`};
+        ? `${theme.controls.switcher.bg.disabled}`
+        : `${theme.controls.switcher.bg.default}`};
   }
 
   :first-child:after {
@@ -87,9 +98,9 @@ const StyledLabel = styled.label<{
     padding-right: ${({ theme }) => theme.spaces.s};
     background-color: ${({ disabled, theme }) =>
       disabled
-        ? `${theme.bgColors.disabled}`
-        : `${theme.controls.switcher.bg}`};
-    border: ${({ theme }) => theme.controls.switcher.border};
+        ? `${theme.controls.switcher.bg.disabled}`
+        : `${theme.controls.switcher.bg.default}`};
+    border: ${({ theme }) => theme.controls.switcher.border.default};
   }
 
   /* Ползунок */
@@ -115,7 +126,7 @@ const StyledLabel = styled.label<{
           return '4px';
       }
     }};
-    background: ${({ theme }) => theme.controls.switcher.color};
+    background: ${({ theme }) => theme.controls.switcher.color.default};
     opacity: ${({ disabled }) => (disabled ? 0.4 : 1)};
     position: absolute;
     top: 0;
@@ -137,19 +148,6 @@ const StyledLabel = styled.label<{
   }
 `;
 
-type SwitcherProps = {
-  name: string;
-  onChange?: (
-    checked: boolean,
-    event: React.ChangeEvent<HTMLInputElement>,
-  ) => void;
-  label?: string;
-  size?: SizeType;
-  disabled?: boolean;
-  className?: string;
-};
-
-// TODO Сделать name опциональным
 export const Switcher = ({
   name,
   onChange,
@@ -158,6 +156,7 @@ export const Switcher = ({
   disabled,
   className,
 }: SwitcherProps) => {
+  const id = useId();
   const [isToggled, setIsToggled] = useState(false);
 
   const handleSwitch = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -169,7 +168,7 @@ export const Switcher = ({
     <StyledContainer className={className} size={size}>
       <div>
         <StyledCheckbox
-          id={name}
+          id={id}
           name={name}
           type="checkbox"
           onChange={handleSwitch}
@@ -179,7 +178,7 @@ export const Switcher = ({
           checked={isToggled}
           size={size}
           disabled={disabled}
-          htmlFor={name}
+          htmlFor={id}
         >
           <span />
           <span />

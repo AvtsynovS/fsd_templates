@@ -1,13 +1,15 @@
 import { Link } from 'react-router';
 import styled from 'styled-components';
 
-import { Button, ColorType, Divider, Title, WeightType } from '@shared';
+import { Button, ColorType, Divider, WeightType } from '@shared';
+import { UserSettings } from '@widgets';
 
 const StyledWrapper = styled.div`
   display: flex;
   flex-direction: column;
   margin: ${({ theme }) => `${theme.spaces.none} 10vh`};
   row-gap: ${({ theme }) => theme.spaces.l};
+  padding: ${({ theme }) => `${theme.spaces.l} ${theme.spaces.none}`};
 `;
 
 const StyledWrapperBtn = styled.div`
@@ -31,10 +33,10 @@ const StyledLink = styled(Link)`
 export const HomePage = () => {
   return (
     <StyledWrapper>
-      <Title as="h3">Home Page</Title>
       <StyledLink to="/blog">
         <Button label="Go to Blog" />
       </StyledLink>
+      <UserSettings />
       <Divider />
       <StyledWrapperBtn>
         <Button view={ColorType.PRIMARY} label="PRIMARY" />
@@ -44,7 +46,7 @@ export const HomePage = () => {
         <Button view={ColorType.DEFAULT} label="DEFAULT" />
         <Button view={ColorType.SUCCESS} label="SUCCESS" />
         <Button view={ColorType.WARNING} label="WARNING" />
-        <Button view={ColorType.DANGER} label="DANGER" />
+        <Button view={ColorType.ERROR} label="DANGER" />
         <Button view={ColorType.PRIMARY} label="DISABLED" disabled />
       </StyledWrapperBtn>
     </StyledWrapper>
