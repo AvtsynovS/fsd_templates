@@ -1,0 +1,14 @@
+:root {
+  /* border, color, bg */
+  --status-success-1: rgb(19, 80, 19);
+  --status-success-2: rgb(9, 104, 27);
+  --status-success-3: rgb(234, 248, 234);
+
+  --status-warning-1: rgb(92, 64, 13);
+  --status-warning-2: rgb(164, 110, 10);
+  --status-warning-3: rgb(255, 248, 224);
+
+  --status-error-1: rgb(76, 14, 16);
+  --status-error-2: rgb(168, 8, 8);
+  --status-error-3: rgb(250, 231, 232);
+}

@@ -1,1 +1,0 @@
-export { SecondWidget } from "./SecondWidget";

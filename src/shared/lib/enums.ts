@@ -11,7 +11,7 @@ export enum ColorType {
   DEFAULT = 'default',
   SUCCESS = 'success',
   WARNING = 'warning',
-  DANGER = 'danger',
+  ERROR = 'error',
 }
 
 export enum SizeType {

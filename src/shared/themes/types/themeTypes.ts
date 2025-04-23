@@ -1,3 +1,5 @@
+import { StatusType } from '../..//types';
+
 type ColorType = {
   primary: string;
   secondary: string;
@@ -6,7 +8,7 @@ type ColorType = {
   default: string;
   success: string;
   warning: string;
-  danger: string;
+  error: string;
   disabled: string;
 };
 
@@ -21,22 +23,41 @@ export type SizeType = {
   xxl: string;
 };
 
+export type BorderType = {
+  success: string;
+  warning: string;
+  error: string;
+};
+
+type ControlItemType = {
+  default: string;
+  primary?: string;
+  secondary?: string;
+  ghost?: string;
+  link?: string;
+  hover?: string;
+  active?: string;
+  focus?: string;
+  disabled?: string;
+  success?: string;
+  warning?: string;
+  error?: string;
+};
+
 type ComponentControlType = {
-  bg: string;
-  color: string;
-  border: string;
+  bg: ControlItemType;
+  color?: ControlItemType;
+  border?: ControlItemType;
 };
 
 type ControlType = Record<string, ComponentControlType>;
 
 type BackgroundColor = Omit<ColorType, 'ghost' | 'link'>;
-type BorderColorType = Omit<ColorType, 'ghost' | 'link'>;
 
 export interface AppThemeType {
   colors: ColorType & { black: string; white: string };
-  bgColors: BackgroundColor;
-  bgButton: BackgroundColor;
-  borderColor: BorderColorType;
+  bg: BackgroundColor;
   controls: ControlType;
   spaces: SizeType;
+  borders: BorderType;
 }

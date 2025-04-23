@@ -1,1 +1,1 @@
-export { BASE_URL } from './constants';
+export * from './constants';
