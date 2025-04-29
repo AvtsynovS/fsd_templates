@@ -1,9 +1,9 @@
 import { useContext } from 'react';
 import { styled } from 'styled-components';
 
-import { SupportedTheme, ThemeContext } from '@shared';
+import { SupportedTheme, ThemeContext, useTranslate } from '@shared';
 
-import { Switcher } from '../Switcher';
+import { Switcher } from '../../ui/Switcher';
 
 const StyledWrapper = styled.div`
   display: flex;
@@ -16,18 +16,18 @@ const StyledWrapper = styled.div`
 `;
 
 export const ThemeButton = () => {
+  const translate = useTranslate();
   const { onChangeTheme } = useContext(ThemeContext);
 
   const handleSwitch = (checked: boolean) => {
     onChangeTheme(checked ? SupportedTheme.DARK : SupportedTheme.LIGHT);
   };
 
-  // TODO Добавить интернационализацию проекта
   return (
     <StyledWrapper>
-      <p>light</p>
+      <p>{translate('theme.light')}</p>
       <Switcher name="switch-theme" onChange={handleSwitch} />
-      <p>dark</p>
+      <p>{translate('theme.dark')}</p>
     </StyledWrapper>
   );
 };

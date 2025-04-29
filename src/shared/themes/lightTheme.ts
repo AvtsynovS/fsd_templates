@@ -95,6 +95,7 @@ export const lightTheme: DefaultTheme = {
     select: {
       bg: {
         default: 'rgb(255, 255, 255)',
+        primary: 'rgb(28, 99, 170)',
         hover: 'rgb(252, 252, 252)',
         focus: 'rgb(255, 255, 255)',
         disabled: 'rgb(240, 240, 240)',
@@ -106,6 +107,7 @@ export const lightTheme: DefaultTheme = {
       },
       border: {
         default: '1px solid rgb(137, 137, 137)',
+        primary: '1px solid rgb(22, 72, 123)',
         secondary: '1px solid rgba(221, 221, 221, 0.6)',
         hover: `1px solid rgb(85, 85, 85)`,
         focus: `1px solid rgb(44, 44, 44)`,

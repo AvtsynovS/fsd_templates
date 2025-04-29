@@ -4,7 +4,6 @@ export * from './Header';
 export * from './Title';
 export * from './Divider';
 export * from './Switcher';
-export * from './ThemeButton';
 export * from './TextField';
 export * from './Checkbox';
 export * from './Radio';

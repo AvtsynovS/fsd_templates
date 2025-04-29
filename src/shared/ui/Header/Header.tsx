@@ -3,8 +3,9 @@ import styled from 'styled-components';
 import { LogIn } from '../../assets';
 import Logo from '../../assets/images/logo-primary.png';
 import { ColorType, SizeType } from '../../lib';
+import { LocalizationButton, useTranslate } from '../../localization';
+import { ThemeButton } from '../../themes';
 import { Button } from '../Button';
-import { ThemeButton } from '../ThemeButton';
 import { Title } from '../Title';
 
 const StyledHeader = styled.header`
@@ -32,6 +33,8 @@ const StyledTitle = styled(Title)`
 `;
 
 export const Header = () => {
+  const translate = useTranslate();
+
   return (
     <StyledHeader>
       <div>
@@ -40,12 +43,13 @@ export const Header = () => {
       {/* TODO найти возможность объединять стили через явный проп компонента */}
       {/* forwardedAs merge parent and child styles */}
       <StyledTitle forwardedAs="h1" color="primary">
-        Home Page
+        {translate('page.home.title')}
       </StyledTitle>
       <StyledMenu>
+        <LocalizationButton />
         <ThemeButton />
         <Button
-          label="Sing In"
+          label={translate('button.label.singIn')}
           size={SizeType.SMALL}
           view={ColorType.SECONDARY}
           iconRight={<LogIn />}
@@ -54,7 +58,7 @@ export const Header = () => {
           }}
         />
         <Button
-          label="Registration"
+          label={translate('button.label.registration')}
           size={SizeType.SMALL}
           onClick={() => {
             console.log('Registration');

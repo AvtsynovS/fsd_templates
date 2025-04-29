@@ -106,7 +106,10 @@ const StyledButton = styled.button<{
   cursor: ${({ disabled }) => (disabled ? 'default' : 'pointer')};
 
   &:hover:not(:disabled) {
-    filter: brightness(85%);
+    filter: ${({ $view }) =>
+      $view === ColorType.SECONDARY || $view === ColorType.GHOST
+        ? 'brightness(95%)'
+        : 'brightness(110%)'};
   }
 
   &:active:not(:disabled) {

@@ -1,0 +1,38 @@
+{
+  "locale.en": "EN",
+  "locale.ru": "RU",
+  "theme.light": "Светлая",
+  "theme.dark": "Темная",
+
+  "field.label.surname": "Фамилия",
+  "field.label.name": "Имя",
+  "field.label.patronymic": "Отчество",
+  "field.label.email": "Почта",
+  "field.label.age": "Возраст",
+  "field.label.profession": "Профессия",
+  "field.label.sex": "Пол",
+  "field.label.about": "О себе",
+  "field.label.privacyPolicy": "Я согласен на обработку персональных данных",
+  "field.option.male": "Мужской",
+  "field.option.female": "Женский",
+  "field.option.frontend": "Frontend-разработчик",
+  "field.option.backend": "Backend-разработчик",
+  "field.option.qa": "Тестировщик",
+  "field.option.devOps": "DevOps",
+  "field.option.analyst": "Аналитик",
+  "field.placeholder.surname": "Введите фамилию",
+  "field.placeholder.name": "Введите имя",
+  "field.placeholder.patronymic": "Введите отчество",
+  "field.placeholder.email": "Введите e-mail",
+  "field.placeholder.age": "Введите возраст",
+  "field.placeholder.about": "Расскажите о себе",
+
+  "button.label.registration": "Регистрация",
+  "button.label.singIn": "Войти",
+  "button.label.singOut": "Выйти",
+  "button.label.save": "Сохранить",
+  "button.label.clear": "Очистить",
+
+  "page.home.title": "Домашняя страница",
+  "page.user.title": "Настройки пользователя"
+}

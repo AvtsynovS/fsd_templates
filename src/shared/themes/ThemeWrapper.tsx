@@ -9,8 +9,7 @@ import { ThemeProvider } from 'styled-components';
 
 import { SupportedTheme } from '../lib';
 
-import { onChangeTheme, getCurrentTheme } from './helpers';
-import { getTheme } from './helpers/helpers';
+import { onChangeTheme, getCurrentTheme, getTheme } from './helpers';
 import { ThemeContext } from './ThemeContext';
 
 export const ThemeWrapper = ({ children }: PropsWithChildren) => {
