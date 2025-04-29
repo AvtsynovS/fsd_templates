@@ -1,6 +1,6 @@
 export const BASE_URL = 'https://jsonplaceholder.typicode.com/posts';
 
-export const profession = [
+export const professionList = [
   {
     label: 'Frontend-разработчик',
     value: 'frontend',

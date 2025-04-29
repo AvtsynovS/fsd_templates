@@ -1,6 +1,7 @@
 import { useId, useState } from 'react';
 import styled from 'styled-components';
 
+import { SizeType } from '../../lib';
 import { OptionType, StatusType } from '../../types';
 
 type SelectProps = {
@@ -9,9 +10,11 @@ type SelectProps = {
   name?: string;
   required?: boolean;
   disabled?: boolean;
+  size?: SizeType;
   status?: StatusType;
   errorMessage?: string;
   className?: string;
+  value?: string;
   onChange?: (
     value: string,
     event: React.ChangeEvent<HTMLSelectElement>,
@@ -101,6 +104,7 @@ const StyledRequired = styled.span`
 const StyledSelect = styled.select<{
   status: StatusType;
   disabled: boolean;
+  size: SizeType;
 }>`
   background-color: ${({ status, disabled, theme }) => {
     if (disabled) return theme.controls.select.bg.disabled;
@@ -118,7 +122,16 @@ const StyledSelect = styled.select<{
   }};
   // TODO Вынести в тему?
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  padding: ${({ theme }) => theme.spaces.s};
+  padding: ${({ size, theme }) => {
+    switch (size) {
+      case SizeType.SMALL:
+        return theme.spaces.xs;
+      case SizeType.LARGE:
+        return theme.spaces.m;
+      default:
+        return theme.spaces.s;
+    }
+  }};
   // TODO Вынести в тему?
   border-radius: 4px;
 
@@ -137,9 +150,18 @@ const StyledSelect = styled.select<{
   }
 `;
 
-const StyledOption = styled.option`
+const StyledOption = styled.option<{ size: SizeType }>`
   border: ${({ theme }) => theme.controls.select.border.secondary};
-  padding: ${({ theme }) => theme.spaces.s};
+  padding: ${({ size, theme }) => {
+    switch (size) {
+      case SizeType.SMALL:
+        return theme.spaces.xs;
+      case SizeType.LARGE:
+        return theme.spaces.m;
+      default:
+        return theme.spaces.s;
+    }
+  }};
   transition: 0.4s;
 
   &:first-of-type {
@@ -192,16 +214,18 @@ export const Select = ({
   name,
   required,
   disabled = false,
+  size = SizeType.MEDIUM,
   status = 'default',
   errorMessage,
   className,
   onChange,
+  value,
 }: SelectProps) => {
   const id = useId();
-  const [value, setValue] = useState<string>();
+  const [currentValue, setCurrentValue] = useState(value);
 
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setValue(event.target.value);
+    setCurrentValue(event.target.value);
     onChange?.(event.target.value, event);
   };
 
@@ -217,12 +241,15 @@ export const Select = ({
         id={id}
         name={name}
         onChange={handleChange}
-        value={value}
+        value={currentValue}
         disabled={disabled}
+        size={size}
         status={status}
       >
-        {options.map(({ label, value }) => (
-          <StyledOption value={value}>{label}</StyledOption>
+        {options.map(({ label, value }, index) => (
+          <StyledOption key={index} value={value} size={size}>
+            {label}
+          </StyledOption>
         ))}
       </StyledSelect>
       {errorMessage && (

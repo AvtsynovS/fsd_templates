@@ -5,6 +5,7 @@ export * from './ui';
 export * from './hooks';
 export * from './assets';
 export * from './themes';
+export * from './localization';
 export * from './lib';
 export * from './utils';
 export * from './types';

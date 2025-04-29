@@ -38,7 +38,7 @@ const Component = styled('div')<TitleProps>`
         return theme.colors.success;
       case ColorType.WARNING:
         return theme.colors.warning;
-      case ColorType.DANGER:
+      case ColorType.ERROR:
         return theme.colors.danger;
       default:
         return theme.colors.default;

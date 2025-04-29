@@ -1,1 +1,1 @@
-export { onChangeTheme, getCurrentTheme } from './helpers';
+export { onChangeTheme, getCurrentTheme, getTheme } from './helpers';

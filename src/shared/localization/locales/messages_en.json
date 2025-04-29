@@ -1,0 +1,38 @@
+{
+  "locale.en": "EN",
+  "locale.ru": "RU",
+  "theme.light": "Light",
+  "theme.dark": "Dark",
+
+  "field.label.surname": "Surname",
+  "field.label.name": "Name",
+  "field.label.patronymic": "Patronymic",
+  "field.label.email": "Email",
+  "field.label.age": "Age",
+  "field.label.profession": "Profession",
+  "field.label.sex": "Sex",
+  "field.label.about": "About me",
+  "field.label.privacyPolicy": "I agree to the processing of personal data",
+  "field.option.male": "Male",
+  "field.option.female": "Female",
+  "field.option.frontend": "Frontend-developer",
+  "field.option.backend": "Backend-developer",
+  "field.option.qa": "QA engineer",
+  "field.option.devOps": "DevOps",
+  "field.option.analyst": "Analyst",
+  "field.placeholder.surname": "Enter surname",
+  "field.placeholder.name": "Enter name",
+  "field.placeholder.patronymic": "Enter patronymic",
+  "field.placeholder.email": "Enter e-mail",
+  "field.placeholder.age": "Enter age",
+  "field.placeholder.about": "Tell about yourself",
+
+  "button.label.registration": "Registration",
+  "button.label.singIn": "sing In",
+  "button.label.singOut": "Sing Out",
+  "button.label.save": "Save",
+  "button.label.clear": "Clear",
+
+  "page.home.title": "Home Page",
+  "page.user.title": "User Settings"
+}

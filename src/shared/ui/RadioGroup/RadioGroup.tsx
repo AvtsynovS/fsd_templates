@@ -118,9 +118,10 @@ export const RadioGroup = ({
         </span>
       </div>
       <StyledWrapperOptions direction={direction}>
-        {options.map(({ label, value }) => {
+        {options.map(({ label, value }, index) => {
           return (
             <Radio
+              key={index}
               label={label}
               value={value}
               name={name || randomName}

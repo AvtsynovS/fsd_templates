@@ -2,13 +2,12 @@
 
 Данный проект является шаблоном react-приложения.
 В проекте применяется Feature Sliced Design архитектура.
-Для удобства использования в каждой папке добавлено краткое описание назначения.
 
 ## Краткое описание методологии
 
 Проект на FSD состоит из слоев (layers), каждый слой состоит из слайсов (slices) и каждый слайс состоит из сегментов (segments).
 
-![Feature Sliced Design](https://github.com/AvtsynovS/fsd_templates/blob/feat/first-settings-project/assets/fsd.jpg)
+![Feature Sliced Design](https://feature-sliced.github.io/documentation/assets/ideal-img/visual_schema.b6c18f6.1030.jpg)
 
 ### :pushpin: Слои
 
@@ -95,6 +94,15 @@
 
 Настройка темы осуществляется в соответствующем файле, расположенном по адресу `src/shared/themes/[name]Theme.ts`
 
+### Локализация
+
+Для интернационализации проекта используется библиотека `react-intl`. Поддерживается русская и английская локаль.
+Чтобы добавить новую локаль, нужно:
+
+- Добавить новую локаль в файле `src/shared/localization/config/enums.ts`
+- Добавить новую локаль в функции `getLocale` и `getTranslate` в файле `src/shared/localization/helpers/helpers.ts`
+- Добавить переводы в соответствующий файлы, расположенные в папке `src/shared/localization/locales`
+
 ### TODO list
 
 - ✅️ Описание проекта в README.md
@@ -111,7 +119,7 @@
 - ✅️ React query API
 - ✅️ Роутинг, приватный роутинг
 - ✅️ Обработчик ошибок
-- [ ] Локализация
+- ✅️ Локализация
 - ✅️ Темизация
 - [ ] Валидация формы
 - ✅️ Типизация
