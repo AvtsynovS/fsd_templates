@@ -1,7 +1,12 @@
 {
   "name": "fsd_templates",
   "version": "0.1.0",
-  "private": true,
+  "description": "FSD Template for quick start app",
+  "author": {
+    "name": "Сергей Авцынов",
+    "url": "https://github.com/AvtsynovS"
+  },
+  "license": "MIT",
   "scripts": {
     "cross": "webpack --config config/webpack.dev.ts",
     "build:dev": "webpack --config config/webpack.dev.ts",
